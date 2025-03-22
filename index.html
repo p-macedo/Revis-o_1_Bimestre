@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,23 +16,27 @@
         body {
             font-family: 'Inter', sans-serif;
         }
+
         .math {
             font-size: 1.1em;
         }
+
         button {
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
+
         #modal {
             transition: opacity 0.3s ease-in-out;
         }
     </style>
 </head>
+
 <body class="p-6 bg-gray-50">
     <div class="max-w-4xl mx-auto">
         <!-- Cabeçalho -->
         <header class="text-center mb-8">
-            <h1 class="text-3xl font-bold text-gray-900">Revisão de Análise Combinatória</h1>
+            <h1 class="text-3xl font-bold text-blue-500">Revisão de Análise Combinatória</h1>
             <p class="text-gray-600 mt-2">Estude os conceitos e resolva os exercícios para fixar o conteúdo.</p>
         </header>
         <!-- Seção do Professor -->
@@ -48,105 +53,401 @@
         </div>
         <!-- Seções de Conteúdo -->
         <div class="space-y-6">
-            <!-- Espaço Amostral e Evento -->
-            <div class="bg-white p-6 rounded-lg shadow-sm">
-                <h2 class="text-xl font-semibold text-gray-800 mb-4">Espaço Amostral e Evento</h2>
-                <div class="text-gray-700 mb-4">O <strong>espaço amostral</strong> é o conjunto de todos os resultados possíveis de um experimento. Um <strong>evento</strong> é um subconjunto do espaço amostral.</div>
-                <div class="text-gray-700"><strong>Exemplo:</strong> No lançamento de dois dados de 6 faces, o espaço amostral é \( S = \{(1,1), (1,2), ..., (6,6)\} \). O evento "sair uma soma igual a 7" seria \( E = \{(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)\} \).</div>
-            </div>
             <!-- Princípio Fundamental da Contagem -->
             <div class="bg-white p-6 rounded-lg shadow-sm">
                 <h2 class="text-xl font-semibold text-gray-800 mb-4">Princípio Fundamental da Contagem</h2>
-                <div class="text-gray-700 mb-4">Se um evento pode ocorrer de \( m \) maneiras e outro evento pode ocorrer de \( n \) maneiras, então os dois eventos juntos podem ocorrer de \( m \times n \) maneiras.</div>
-                <div class="text-gray-700"><strong>Exemplo:</strong> Se você tem 4 camisetas e 3 calças, o total de combinações é \( 4 \times 3 = 12 \).</div>
+                <div class="text-gray-700 mb-4">
+                    Se um evento pode ocorrer de \( m \) maneiras e outro evento pode ocorrer de \( n \) maneiras, então
+                    os dois eventos juntos podem ocorrer de \( m \times n \) maneiras.
+                    Este princípio é utilizado para calcular o número total de combinações possíveis quando há várias
+                    etapas ou escolhas a serem feitas. Em outras palavras, é uma multiplicação \( m \times n \).
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo:</strong> Se você tem 2 camisetas (C1, C2) e 3 calças (P1, P2, P3), o total de
+                    combinações é \( 2 \times 3 = 6 \).
+                    Podemos visualizar isso usando um diagrama de árvore:
+                    <br>
+                    <pre>
+        C1
+        ├── P1
+        ├── P2
+        └── P3
+        C2
+        ├── P1
+        ├── P2
+        └── P3
+        </pre>
+                    Cada ramo da árvore representa uma combinação possível de camiseta e calça.
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Outro Exemplo:</strong> Se você tem 3 tipos de pão (Pão1, Pão2, Pão3) e 2 tipos de recheio
+                    (Recheio1, Recheio2) para fazer um sanduíche, o total de combinações possíveis é \( 3 \times 2 = 6
+                    \).
+                    Podemos visualizar isso usando um diagrama de árvore:
+                    <br>
+                    <pre>
+        Pão1
+        ├── Recheio1
+        └── Recheio2
+        Pão2
+        ├── Recheio1
+        └── Recheio2
+        Pão3
+        ├── Recheio1
+        └── Recheio2
+        </pre>
+                    Cada ramo da árvore representa uma combinação possível de pão e recheio.
+                </div>
             </div>
+
             <!-- Fatorial -->
             <div class="bg-white p-6 rounded-lg shadow-sm">
                 <h2 class="text-xl font-semibold text-gray-800 mb-4">Fatorial</h2>
-                <div class="text-gray-700 mb-4">O fatorial de um número \( n \) (\( n! \)) é o produto de todos os números de 1 até \( n \).</div>
-                <div class="text-gray-700"><strong>Exemplo:</strong> \( 5! = 5 \times 4 \times 3 \times 2 \times 1 = 120 \).</div>
+                <div class="text-gray-700 mb-4">
+                    O fatorial de um número \( n \) (\( n! \)) é o produto de todos os números de 1 até \( n \).
+                    O fatorial é utilizado em várias fórmulas de análise combinatória, como permutações e combinações.
+                </div>
+                <div class="text-gray-700 mb-4">
+                    A fórmula para calcular o fatorial de um número \( n \) é:
+                    \[
+                    n! = n \times (n-1) \times (n-2) \times \cdots \times 1
+                    \]
+                    Por definição, o fatorial de 0 e de 1 é igual a 1:
+                    \[
+                    0! = 1
+                    \]
+                    \[
+                    1! = 1
+                    \]
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo 1:</strong> \( 5! = 5 \times 4 \times 3 \times 2 \times 1 = 120 \).
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo 2:</strong> \( 3! = 3 \times 2 \times 1 = 6 \).
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo 3:</strong> \( 0! = 1 \) (por definição, o fatorial de zero é igual a 1).
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo 4:</strong> \( 7! = 7 \times 6 \times 5 \times 4 \times 3 \times 2 \times 1 = 5040
+                    \).
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo 5:</strong> Simplificação no cálculo de \( \frac{7!}{5!} \):
+                    \[
+                    \frac{7!}{5!} = \frac{7 \times 6 \times 5!}{5!} = 7 \times 6 = 42
+                    \]
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo 6:</strong> Simplificação no cálculo de \( \frac{8!}{6!} \):
+                    \[
+                    \frac{8!}{6!} = \frac{8 \times 7 \times 6!}{6!} = 8 \times 7 = 56
+                    \]
+                </div>
             </div>
+
             <!-- Permutação Simples -->
             <div class="bg-white p-6 rounded-lg shadow-sm">
                 <h2 class="text-xl font-semibold text-gray-800 mb-4">Permutação Simples</h2>
-                <div class="text-gray-700 mb-4">A permutação simples é o número de maneiras de organizar \( n \) elementos distintos em uma sequência.</div>
-                <div class="text-gray-700"><strong>Exemplo:</strong> Com 4 letras diferentes (A, B, C, D), temos \( 4! = 24 \) maneiras de organizá-las: ABCD, ABDC, ACBD, ..., DCBA.</div>
+                <div class="text-gray-700 mb-4">
+                    A permutação simples é o número de maneiras de organizar \( n \) elementos distintos em uma
+                    sequência.
+                    A ordem dos elementos é importante nas permutações.
+                </div>
+                <div class="text-gray-700 mb-4">
+                    A fórmula para calcular o número de permutações de \( n \) elementos é:
+                    \[
+                    P(n) = n!
+                    \]
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo 1:</strong> Com 4 letras diferentes (A, B, C, D), temos \( 4! = 24 \) maneiras de
+                    organizá-las: ABCD, ABDC, ACBD, ..., DCBA.
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo 2:</strong> Com 3 números diferentes (1, 2, 3), temos \( 3! = 6 \) maneiras de
+                    organizá-los: 123, 132, 213, 231, 312, 321.
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo 3:</strong> Com 5 pessoas diferentes (Ana, Bruno, Carlos, Daniela, Eduardo), temos
+                    \( 5! = 120 \) maneiras de organizá-las em uma fila.
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo 4:</strong> Com 2 cores diferentes (Vermelho, Azul), temos \( 2! = 2 \) maneiras de
+                    organizá-las: Vermelho-Azul, Azul-Vermelho.
+                </div>
             </div>
             <!-- Permutação com Repetição -->
             <div class="bg-white p-6 rounded-lg shadow-sm">
                 <h2 class="text-xl font-semibold text-gray-800 mb-4">Permutação com Repetição</h2>
-                <div class="text-gray-700 mb-4">Quando há elementos repetidos, o número de permutações é reduzido dividindo pelo fatorial das repetições.</div>
-                <div class="text-gray-700"><strong>Exemplo:</strong> Para a palavra "MAMAMIA", temos 7 letras, com 3 repetições de 'A' e 2 repetições de 'M'. O número de anagramas é \( \frac{7!}{3! \times 2!} = 420 \).</div>
+                <div class="text-gray-700 mb-4">
+                    Quando há elementos repetidos, o número de permutações é reduzido dividindo pelo fatorial das
+                    repetições.
+                    Isso ocorre porque as permutações de elementos repetidos não são distintas.
+                </div>
+                <div class="text-gray-700 mb-4">
+                    A fórmula para calcular o número de permutações de \( n \) elementos com repetições é:
+                    \[
+                    P(n; n_1, n_2, \ldots, n_k) = \frac{n!}{n_1! \times n_2! \times \cdots \times n_k!}
+                    \]
+                    onde \( n \) é o número total de elementos e \( n_1, n_2, \ldots, n_k \) são as repetições de cada
+                    elemento.
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo 1:</strong> Para a palavra "MAMAMIA", temos 7 letras, com 3 repetições de 'A' e 2
+                    repetições de 'M'. O número de anagramas é:
+                    \[
+                    \frac{7!}{3! \times 2!} = \frac{5040}{6 \times 2} = 420
+                    \]
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo 2:</strong> Para a palavra "BANANA", temos 6 letras, com 3 repetições de 'A' e 2
+                    repetições de 'N'. O número de anagramas é:
+                    \[
+                    \frac{6!}{3! \times 2!} = \frac{720}{6 \times 2} = 60
+                    \]
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo 3:</strong> Para a palavra "MISSISSIPPI", temos 11 letras, com 4 repetições de 'I',
+                    4 repetições de 'S' e 2 repetições de 'P'. O número de anagramas é:
+                    \[
+                    \frac{11!}{4! \times 4! \times 2!} = \frac{39916800}{24 \times 24 \times 2} = 34650
+                    \]
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo 4:</strong> Para a palavra "BOOKKEEPER", temos 10 letras, com 3 repetições de 'O', 2
+                    repetições de 'K' e 2 repetições de 'E'. O número de anagramas é:
+                    \[
+                    \frac{10!}{3! \times 2! \times 2!} = \frac{3628800}{6 \times 2 \times 2} = 151200
+                    \]
+                </div>
             </div>
             <!-- Arranjo Simples -->
             <div class="bg-white p-6 rounded-lg shadow-sm">
                 <h2 class="text-xl font-semibold text-gray-800 mb-4">Arranjo Simples</h2>
-                <div class="text-gray-700 mb-4">O arranjo é o número de maneiras de escolher e organizar \( p \) elementos de um conjunto de \( n \), onde a ordem importa.</div>
-                <div class="text-gray-700"><strong>Exemplo:</strong> Escolher 2 livros de 5 e organizá-los em uma prateleira: \( A(5, 2) = \frac{5!}{(5-2)!} = 20 \).</div>
+                <div class="text-gray-700 mb-4">
+                    O arranjo é o número de maneiras de escolher e organizar \( p \) elementos de um conjunto de \( n
+                    \), onde a ordem importa.
+                    Em outras palavras, um arranjo considera tanto a seleção quanto a ordem dos elementos.
+                </div>
+                <div class="text-gray-700 mb-4">
+                    A fórmula para calcular o número de arranjos de \( n \) elementos tomados \( p \) a \( p \) é:
+                    \[
+                    A(n, p) = {Permutação\ interrompida\ até\ N\ elementos\ de\ P} = \frac{n!}{(n-p)!}
+                    \]
+                    onde \( n! \) (fatorial de \( n \)) é o produto de todos os números inteiros positivos até \( n \).
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo:</strong> Escolher 2 livros de um total de 5 e organizá-los em uma prateleira.
+                    O número de maneiras de escolher e organizar 2 livros de 5 é dado por:
+                    \[
+                    A(5, 2) = \frac{5!}{(5-2)!} = \frac{5!}{3!} = \frac{5 \times 4 \times 3!}{3!} = 5 \times 4 = 20
+                    \]
+                    Portanto, há 20 maneiras diferentes de escolher e organizar 2 livros de um total de 5.
+                </div>
             </div>
             <!-- Combinação Simples -->
             <div class="bg-white p-6 rounded-lg shadow-sm">
                 <h2 class="text-xl font-semibold text-gray-800 mb-4">Combinação Simples</h2>
-                <div class="text-gray-700 mb-4">A combinação é o número de maneiras de escolher \( p \) elementos de um conjunto de \( n \), onde a ordem não importa.</div>
-                <div class="text-gray-700"><strong>Exemplo:</strong> Escolher 4 amigos de 7 para formar um grupo: \( C(7, 4) = \frac{7!}{4!(7-4)!} = 35 \).</div>
+                <div class="text-gray-700 mb-4">
+                    A combinação é o número de maneiras de escolher \( p \) elementos de um conjunto de \( n \), onde a
+                    ordem não importa.
+                    Diferente dos arranjos, nas combinações a ordem dos elementos não faz diferença.
+                </div>
+                <div class="text-gray-700 mb-4">
+                    A fórmula para calcular o número de combinações de \( n \) elementos tomados \( p \) a \( p \) é:
+                    \[
+                    C(n, p) = \frac{Arranjo\ até\ N\ elementos\ P}{Permutação\ de\ P} =
+                    \frac{n!}{p!(n-p)!}
+                    \]
+                    onde \( A(n, p) \) é o número de arranjos de \( n \) elementos tomados \( p \) a \( p \) e \( P(p)
+                    \) é o número de permutações de \( p \) elementos.
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo:</strong> Escolher 4 amigos de um grupo de 7 para formar um grupo.
+                    O número de maneiras de escolher 4 amigos de 7 é dado por:
+                    \[
+                    C(7, 4) = \frac{A(7, 4)}{P(4)} = \frac{7!}{4!(7-4)!} = \frac{7!}{4! \cdot 3!} = \frac{7 \times 6
+                    \times 5 \times 4!}{4! \cdot 3 \times 2 \times 1} = \frac{7 \times 6 \times 5}{3 \times 2 \times 1}
+                    = 35
+                    \]
+                    Portanto, há 35 maneiras diferentes de escolher 4 amigos de um grupo de 7.
+                </div>
+            </div>
+            <!-- Espaço Amostral e Evento -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Espaço Amostral e Evento</h2>
+                <div class="text-gray-700 mb-4">
+                    O <strong>espaço amostral</strong> é o conjunto de todos os resultados possíveis de um experimento.
+                    Cada resultado possível é chamado de <strong>ponto amostral</strong>.
+                    Um <strong>evento</strong> é um subconjunto do espaço amostral, ou seja, um conjunto de um ou mais
+                    pontos amostrais.
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo:</strong> No lançamento de dois dados de 6 faces, o espaço amostral é o conjunto de
+                    todos os pares ordenados possíveis de resultados, que podem ser representados como:
+                    \[
+                    S = \{(1,1), (1,2), (1,3), (1,4), (1,5), (1,6), (2,1) ... (6,6)\}
+                    \]
+                    O espaço amostral contém 36 pontos amostrais, pois cada dado tem 6 faces e \( 6 \times 6 = 36 \).
+                </div>
+                <div class="text-gray-700 mb-4">
+                    Um evento é um subconjunto do espaço amostral. Por exemplo, o evento "sair uma soma igual a 7" no
+                    lançamento de dois dados pode ser representado como:
+                    \[
+                    E = \{(1,6), (2,5), (3,4), (4,3), (5,2), (6,1)\}
+                    \]
+                    Este evento contém 6 pontos amostrais, pois há 6 combinações de resultados dos dados que somam 7.
+                </div>
+                <div class="text-gray-700">
+                    <strong>Outro Exemplo:</strong> Considere o lançamento de uma moeda. O espaço amostral é:
+                    \[
+                    S = \{\text{Cara}, \text{Coroa}\}
+                    \]
+                    Se o evento for "sair Cara", então o evento pode ser representado como:
+                    \[
+                    E = \{\text{Cara}\}
+                    \]
+                    Este evento contém 1 ponto amostral.
+                </div>
+            </div>
+            <!-- Probabilidade -->
+            <div class="bg-white p-6 rounded-lg shadow-sm">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Probabilidade</h2>
+                <div class="text-gray-700 mb-4">
+                    A probabilidade de um evento é a razão entre o número de resultados favoráveis e o número de
+                    resultados possíveis.
+                    Em outras palavras, é uma medida de quão provável é que um determinado evento ocorra. A
+                    probabilidade é expressa como um número entre 0 e 1, onde 0 indica que o evento não pode ocorrer e 1
+                    indica que o evento certamente ocorrerá.
+                </div>
+                <div class="text-gray-700 mb-4">
+                    A fórmula para calcular a probabilidade de um evento \( E \) é:
+                    \[
+                    P(E) = \frac{\text{Número de resultados favoráveis}}{\text{Número de resultados possíveis}} =>
+                    \frac{\text{O que eu QUERO}}{\text{O que eu TENHO}}
+                    \]
+                </div>
+                <div class="text-gray-700 mb-4">
+                    <strong>Exemplo:</strong> Considere o lançamento de um dado de 6 faces. Cada face do dado tem um
+                    número de 1 a 6.
+                    Se quisermos calcular a probabilidade de sair um número par, primeiro identificamos os resultados
+                    favoráveis.
+                    Os números pares em um dado de 6 faces são 2, 4 e 6, totalizando 3 resultados favoráveis.
+                    O número total de resultados possíveis é 6, pois o dado tem 6 faces.
+                </div>
+                <div class="text-gray-700 mb-4">
+                    Assim, a probabilidade de sair um número par é:
+                    \[
+                    P(\text{número par}) = \frac{3}{6} = \frac{1}{2} = 0.5
+                    \]
+                    Isso significa que há uma chance de 50% de sair um número par ao lançar o dado.
+                </div>
+                <div class="text-gray-700">
+                    <strong>Outro Exemplo:</strong> Considere um baralho padrão de 52 cartas.
+                    Se quisermos calcular a probabilidade de tirar um Ás, sabemos que há 4 Áses no baralho (um de cada
+                    naipe: copas, ouros, espadas e paus).
+                    Portanto, os resultados favoráveis são 4 e o número total de resultados possíveis é 52.
+                </div>
+                <div class="text-gray-700">
+                    A probabilidade de tirar um Ás é:
+                    \[
+                    P(\text{Ás}) = \frac{4}{52} = \frac{1}{13} \approx 0.077
+                    \]
+                    Isso significa que há aproximadamente uma chance de 7.7% de tirar um Ás ao escolher uma carta
+                    aleatoriamente do baralho.
+                </div>
             </div>
         </div>
         <!-- Questões -->
         <h2 class="text-2xl font-bold text-gray-900 mt-8 mb-4">Exercícios</h2>
         <div id="questions" class="space-y-6"></div>
         <!-- Modal -->
-        <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex justify-center items-center p-4" aria-hidden="true">
+        <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 hidden flex justify-center items-center p-4"
+            aria-hidden="true">
             <div class="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl" role="dialog" aria-labelledby="modal-title">
                 <h3 id="modal-title" class="text-xl font-semibold text-gray-800 mb-4">Explicação</h3>
                 <div id="modal-content" class="mb-4 text-gray-700"></div>
-                <button onclick="closeModal()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600" aria-label="Fechar modal">Fechar</button>
+                <button onclick="closeModal()" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                    aria-label="Fechar modal">Fechar</button>
             </div>
         </div>
     </div>
     <script>
         // Dados das questões
         const questions = [
-            { 
-                text: "Qual é o espaço amostral do lançamento de uma moeda?", 
-                options: ["{Cara, Coroa}", "{1, 2}", "{0, 1}", "{Cara}"], 
+            {
+                text: "Qual é o espaço amostral do lançamento de uma moeda?",
+                options: ["{Cara, Coroa}", "{1, 2}", "{0, 1}", "{Cara}"],
                 answer: "{Cara, Coroa}",
                 explanation: "O espaço amostral é o conjunto de todos os resultados possíveis. No lançamento de uma moeda, os resultados possíveis são <strong>Cara</strong> e <strong>Coroa</strong>. Portanto, o espaço amostral é \\( S = \\{Cara, Coroa\\} \\)."
             },
-            { 
-                text: "Quantos números de 2 algarismos podem ser formados com os dígitos 1, 2, 3?", 
-                options: ["6", "9", "12", "15"], 
+            {
+                text: "Quantos números de 2 algarismos podem ser formados com os dígitos 1, 2, 3?",
+                options: ["6", "9", "12", "15"],
                 answer: "9",
-                explanation: "Para formar números de 2 algarismos com os dígitos 1, 2, 3, usamos o <strong>Princípio Fundamental da Contagem</strong>:</div><div>- Para o primeiro algarismo, temos 3 opções (1, 2, 3).</div><div>- Para o segundo algarismo, também temos 3 opções (1, 2, 3).</div><div>O total de números é: \\( 3 \\times 3 = 9 \\)."
+                explanation: "Para formar números de 2 algarismos com os dígitos 1, 2, 3, usamos o <strong>Princípio Fundamental da Contagem</strong>:<br>- Para o primeiro algarismo, temos 3 opções (1, 2, 3).<br>- Para o segundo algarismo, também temos 3 opções (1, 2, 3).<br>O total de números é: \\( 3 \\times 3 = 9 \\)."
             },
-            { 
-                text: "Qual é o valor de 4! ?", 
-                options: ["12", "24", "36", "48"], 
+            {
+                text: "Qual é o valor de 4! ?",
+                options: ["12", "24", "36", "48"],
                 answer: "24",
-                explanation: "O fatorial de 4 é calculado como:</div><div>\\( 4! = 4 \\times 3 \\times 2 \\times 1 = 24 \\)."
+                explanation: "O fatorial de 4 é calculado como:<br>\\( 4! = 4 \\times 3 \\times 2 \\times 1 = 24 \\)."
             },
-            { 
-                text: "Quantas maneiras diferentes podemos organizar 3 brinquedos em fila?", 
-                options: ["3", "6", "9", "12"], 
+            {
+                text: "Quantas maneiras diferentes podemos organizar 3 brinquedos em fila?",
+                options: ["3", "6", "9", "12"],
                 answer: "6",
-                explanation: "A permutação simples de 3 elementos é calculada como:</div><div>\\( 3! = 3 \\times 2 \\times 1 = 6 \\)."
+                explanation: "A permutação simples de 3 elementos é calculada como:<br>\\( 3! = 3 \\times 2 \\times 1 = 6 \\)."
             },
-            { 
-                text: "Quantos anagramas tem a palavra 'BANANA'?", 
-                options: ["60", "120", "180", "240"], 
+            {
+                text: "Quantos anagramas tem a palavra 'BANANA'?",
+                options: ["60", "120", "180", "240"],
                 answer: "60",
-                explanation: "A palavra 'BANANA' tem 6 letras, com 3 repetições de 'A' e 2 repetições de 'N'. A permutação com repetição é calculada como:</div><div>\\( \\frac{6!}{3! \\times 2!} = 60 \\)."
+                explanation: "A palavra 'BANANA' tem 6 letras, com 3 repetições de 'A' e 2 repetições de 'N'. A permutação com repetição é calculada como:<br>\\( \\frac{6!}{3! \\times 2!} = 60 \\)."
             },
-            { 
-                text: "Quantas maneiras diferentes podemos organizar 2 livros em uma prateleira com 4 livros?", 
-                options: ["6", "12", "24", "48"], 
+            {
+                text: "Quantas maneiras diferentes podemos organizar 2 livros em uma prateleira com 4 livros?",
+                options: ["6", "12", "24", "48"],
                 answer: "12",
-                explanation: "O arranjo simples de 2 elementos escolhidos de 4 é calculado como:</div><div>\\( A(4,2) = \\frac{4!}{(4-2)!} = 12 \\)."
+                explanation: "O arranjo simples de 2 elementos escolhidos de 4 é calculado como:<br>\\( A(4,2) = \\frac{4!}{(4-2)!} = 12 \\)."
             },
-            { 
-                text: "Quantos grupos de 3 amigos podemos formar com 6 amigos?", 
-                options: ["10", "15", "20", "30"], 
+            {
+                text: "Quantos grupos de 3 amigos podemos formar com 6 amigos?",
+                options: ["10", "15", "20", "30"],
                 answer: "20",
-                explanation: "A combinação simples de 3 elementos escolhidos de 6 é calculada como:</div><div>\\( C(6,3) = \\frac{6!}{3!(6-3)!} = 20 \\)."
+                explanation: "A combinação simples de 3 elementos escolhidos de 6 é calculada como:<br>\\( C(6,3) = \\frac{6!}{3!(6-3)!} = 20 \\)."
+            },
+            {
+                text: "Qual é a probabilidade de obter cara ao lançar uma moeda?",
+                options: ["0.25", "0.5", "0.75", "1"],
+                answer: "0.5",
+                explanation: "A probabilidade de obter cara ao lançar uma moeda é:<br>\\( P(\text{Cara}) = \\frac{1}{2} = 0.5 \\)."
+            },
+            {
+                text: "Qual é a probabilidade de obter um número maior que 4 ao lançar um dado de 6 faces?",
+                options: ["0.16", "0.33", "0.5", "0.66"],
+                answer: "0.33",
+                explanation: "Os números maiores que 4 em um dado de 6 faces são 5 e 6, totalizando 2 resultados favoráveis. O número total de resultados possíveis é 6. Portanto, a probabilidade é:<br>\\( P(\text{número maior que 4}) = \\frac{2}{6} = \\frac{1}{3} \\approx 0.33 \\)."
+            },
+            {
+                text: "Qual é a probabilidade de obter exatamente 2 caras ao lançar 3 moedas?",
+                options: ["0.25", "0.375", "0.5", "0.625"],
+                answer: "0.375",
+                explanation: "As combinações possíveis ao lançar 3 moedas são: CCC, CCK, CKC, CKK, KCC, KCK, KKC, KKK. As combinações com exatamente 2 caras são: CCK, CKC, KCC. Portanto, a probabilidade é:<br>\\( P(\text{2 caras}) = \\frac{3}{8} = 0.375 \\)."
+            },
+            {
+                text: "Qual é a probabilidade de obter uma soma igual a 7 ao lançar dois dados de 6 faces?",
+                options: ["0.083", "0.167", "0.25", "0.333"],
+                answer: "0.167",
+                explanation: "As combinações que resultam em uma soma igual a 7 ao lançar dois dados são: (1,6), (2,5), (3,4), (4,3), (5,2), (6,1). Portanto, a probabilidade é:<br>\\( P(\text{soma igual a 7}) = \\frac{6}{36} = \\frac{1}{6} \\approx 0.167 \\)."
+            },
+            {
+                text: "Qual é a probabilidade de ter pelo menos um filho menino em uma família com 3 filhos?",
+                options: ["0.125", "0.25", "0.5", "0.875"],
+                answer: "0.875",
+                explanation: "As combinações possíveis para 3 filhos são: MMM, MMF, MFM, MFF, FMM, FMF, FFM, FFF. A única combinação sem meninos é FFF. Portanto, a probabilidade de ter pelo menos um menino é:<br>\\( P(\text{pelo menos um menino}) = 1 - P(\text{nenhum menino}) = 1 - \\frac{1}{8} = \\frac{7}{8} = 0.875 \\)."
             }
         ];
         // Função para buscar informações do GitHub
@@ -164,7 +465,7 @@
                     <img src="${data.avatar_url}" alt="Foto do Professor" class="w-16 h-16 rounded-full" loading="lazy">
                     <div>
                         <p class="font-semibold text-gray-800">${data.name || "Nome não disponível"}</p>
-                        <p class="text-gray-600">${data.bio || "Prof. EM. PEI Simpliciano Campolim de"}</p>
+                        <p class="text-gray-600">${data.bio || "Prof. EM. PEI Simpliciano Campolim de Almeida"}</p>
                         <a href="${data.html_url}" target="_blank" class="text-blue-500 hover:underline">Ver perfil no GitHub</a>
                     </div>
                 `;
@@ -225,4 +526,5 @@
         };
     </script>
 </body>
+
 </html>
